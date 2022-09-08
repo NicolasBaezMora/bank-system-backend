@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  backend-banksystem:
+    container_name: backend-banksystem
+    image: 'bakend-banksystem'
+    ports:
+      - "8000:8000"
+    networks:
+      - bank-system-network
+    environment:
+      - PSQL_DB_HOST=postgres-banksystem
+      - PSQL_DB_PORT=5432
+      - PSQL_DB_USERNAME=postgres
+      - PSQL_DB_PASSWORD=123456
+networks:
+  bank-system-network:
+    driver: bridge
