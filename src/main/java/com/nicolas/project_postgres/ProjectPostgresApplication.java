@@ -20,8 +20,8 @@ public class ProjectPostgresApplication {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry
 						.addMapping("/**")
-						.allowedOrigins("http://localhost:8080")
-						.allowedMethods("*")
+						.allowedOrigins("*")
+						.allowedMethods("GET", "POST", "PUT")
 						.allowedHeaders("*");
 			}
 		};

@@ -18,6 +18,9 @@ import java.util.List;
 public class AccountService {
 
     @Autowired
+    private AccountValidator accountValidator;
+
+    @Autowired
     private AccountRepository ar;
 
     public List<Account> getAllAccounts() {
@@ -38,7 +41,7 @@ public class AccountService {
 
         try {
             //VALIDATE OBJECT
-            AccountValidator.validateAccount(account);
+            accountValidator.validateAccount(account);
             //----------------
             if (account.getId() == null) return ar.save(account);
             Account accountToUpdate = ar.findById(account.getId())
